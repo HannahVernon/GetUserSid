@@ -14,7 +14,9 @@ namespace GetUserSid
         static extern bool LookupAccountName(string lpSystemName, string lpAccountName, [MarshalAs(UnmanagedType.LPArray)] byte[] Sid, ref uint cbSid, StringBuilder ReferencedDomainName, ref uint cchReferencedDomainName, out SID_NAME_USE peUse);
 
         [DllImport("advapi32", CharSet = CharSet.Auto, SetLastError = true)]
-        static extern bool ConvertSidToStringSid([MarshalAs(UnmanagedType.LPArray)] byte[] pSID,out IntPtr ptrSid);
+        static extern bool ConvertSidToStringSid(
+        [MarshalAs(UnmanagedType.LPArray)] byte[] pSID,
+        out IntPtr ptrSid);
 
         [DllImport("advapi32", CharSet = CharSet.Auto, SetLastError = true)]
         static extern bool ConvertSidToStringSid(IntPtr pSid, out string strSid);
